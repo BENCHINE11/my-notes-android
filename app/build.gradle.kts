@@ -45,4 +45,7 @@ dependencies {
     annotationProcessor("org.projectlombok:lombok:1.18.38") // Enable annotation processing
     testCompileOnly("org.projectlombok:lombok:1.18.38") // For test sources
     testAnnotationProcessor("org.projectlombok:lombok:1.18.38")
+    implementation("com.google.android.material:material:1.12.0")
+    implementation("androidx.cardview:cardview:1.0.0")
+    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
 }

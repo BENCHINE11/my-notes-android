@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
 
 import com.example.mynotes.R;
 import com.example.mynotes.models.Note;
@@ -31,27 +32,36 @@ public class NoteAdapter extends ArrayAdapter<Note> {
 
         Note note = getItem(position);
 
-        View priorityBar = row.findViewById(R.id.viewPriorityBar);
+        CardView card = row.findViewById(R.id.cardNote);
         TextView tvNom = row.findViewById(R.id.tvNom);
         TextView tvDate = row.findViewById(R.id.tvDate);
+        TextView tvPriorite = row.findViewById(R.id.tvPriorite);
 
         if (note != null) {
             tvNom.setText(note.getNom());
             tvDate.setText(note.getDate());
+            tvPriorite.setText(note.getPriorite());
 
-            int colorRes;
+            int bgColor;
+            int badgeColor;
+
             switch (note.getPriorite()) {
                 case "Haute":
-                    colorRes = R.color.priority_high;
+                    bgColor = getContext().getColor(R.color.note_high_bg);
+                    badgeColor = getContext().getColor(R.color.priority_high);
                     break;
                 case "Moyenne":
-                    colorRes = R.color.priority_medium;
+                    bgColor = getContext().getColor(R.color.note_medium_bg);
+                    badgeColor = getContext().getColor(R.color.priority_medium);
                     break;
                 default:
-                    colorRes = R.color.priority_low;
+                    bgColor = getContext().getColor(R.color.note_low_bg);
+                    badgeColor = getContext().getColor(R.color.priority_low);
                     break;
             }
-            priorityBar.setBackgroundResource(colorRes);
+
+            card.setCardBackgroundColor(bgColor);
+            tvPriorite.setBackgroundColor(badgeColor);
         }
 
         return row;

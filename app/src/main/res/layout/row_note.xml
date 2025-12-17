@@ -1,39 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal"
-    android:padding="12dp"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cardNote"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@android:color/white">
-
-    <View
-        android:id="@+id/viewPriorityBar"
-        android:layout_width="8dp"
-        android:layout_height="match_parent"
-        android:layout_marginEnd="12dp"
-        android:background="@color/priority_low"/>
+    app:cardCornerRadius="16dp"
+    app:cardUseCompatPadding="true"
+    app:cardElevation="6dp"
+    app:contentPadding="14dp">
 
     <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1">
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/tvNom"
-            android:textStyle="bold"
-            android:textSize="16sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Nom"/>
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:text="Titre de la note" />
 
         <TextView
             android:id="@+id/tvDate"
-            android:layout_marginTop="4dp"
-            android:textSize="14sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Date"/>
+            android:layout_marginTop="6dp"
+            android:textSize="14sp"
+            android:alpha="0.8"
+            android:text="2025-12-17" />
+
+        <TextView
+            android:id="@+id/tvPriorite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textStyle="bold"
+            android:text="Haute"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
+            android:background="@drawable/badge_bg"
+            android:textColor="@android:color/white" />
+
     </LinearLayout>
 
-</LinearLayout>
+</androidx.cardview.widget.CardView>
